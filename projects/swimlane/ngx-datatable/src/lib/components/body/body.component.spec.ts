@@ -68,7 +68,7 @@ describe('DataTableBodyComponent', () => {
       component.rowCount = 20;
       const expectedIndexes = { first: 10, last: 20 };
       component.updateIndexes();
-      void expect(component.indexes).toEqual(void expectedIndexes);
+      void expect(component.indexes).toEqual(expectedIndexes);
     });
 
     it('should have correct indexes for normal paging with rows < pageSize', () => {
@@ -79,7 +79,7 @@ describe('DataTableBodyComponent', () => {
       component.rowCount = 9;
       const expectedIndexes = { first: 5, last: 9 };
       component.updateIndexes();
-      void expect(component.indexes).toEqual(void expectedIndexes);
+      void expect(component.indexes).toEqual(expectedIndexes);
     });
 
     it('should have correct indexes for external paging with rows > pageSize', () => {
@@ -101,7 +101,7 @@ describe('DataTableBodyComponent', () => {
       component.rowCount = 20;
       const expectedIndexes = { first: 0, last: 10 };
       component.updateIndexes();
-      void expect(component.indexes).toEqual(void expectedIndexes);
+      void expect(component.indexes).toEqual(expectedIndexes);
     });
 
     it('should have correct indexes for external paging with rows < pageSize', () => {
@@ -112,7 +112,7 @@ describe('DataTableBodyComponent', () => {
       component.rowCount = 9;
       const expectedIndexes = { first: 0, last: 5 };
       component.updateIndexes();
-      void expect(component.indexes).toEqual(void expectedIndexes);
+      void expect(component.indexes).toEqual(expectedIndexes);
     });
   });
 
