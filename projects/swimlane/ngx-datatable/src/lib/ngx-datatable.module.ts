@@ -83,6 +83,7 @@ import { DataTableSummaryRowComponent } from './components/body/summary/summary-
 export class NgxDatatableModule {
   /**
    * Configure global configuration via INgxDatatableConfig
+   *
    * @param configuration
    */
   static forRoot(configuration: INgxDatatableConfig): ModuleWithProviders<NgxDatatableModule> {

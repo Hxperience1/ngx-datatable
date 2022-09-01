@@ -156,7 +156,7 @@ export class DataTableHeaderComponent implements OnDestroy {
   _offsetX: number;
   _columns: any[];
   _headerHeight: string;
-  _styleByGroup: { [prop: string]: {} } = {
+  _styleByGroup: { [prop: string]: unknown } = {
     left: {},
     center: {},
     right: {}

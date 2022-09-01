@@ -23,11 +23,14 @@ describe('DraggableDirective', () => {
   });
 
   beforeEach(waitForAsync(() => {
-    TestBed.compileComponents().then(() => {
-      fixture = TestBed.createComponent(TestFixtureComponent);
-      component = fixture.componentInstance;
-      element = fixture.nativeElement;
-    });
+    TestBed.compileComponents().then(
+      () => {
+        fixture = TestBed.createComponent(TestFixtureComponent);
+        component = fixture.componentInstance;
+        element = fixture.nativeElement;
+      },
+      () => {}
+    );
   }));
 
   describe('fixture', () => {
@@ -38,11 +41,11 @@ describe('DraggableDirective', () => {
     });
 
     it('should have a component instance', () => {
-      expect(component).toBeTruthy();
+      void expect(component).toBeTruthy();
     });
 
     it('should have DraggableDirective directive', () => {
-      expect(directive).toBeTruthy();
+      void expect(directive).toBeTruthy();
     });
 
     describe('mouse event', () => {
@@ -61,21 +64,21 @@ describe('DraggableDirective', () => {
       describe('subscription should be destroyed', () => {
         it('when ngOnDestroy is called', () => {
           directive.onMousedown(mouseDown);
-          expect(directive.subscription).toBeTruthy();
+          void expect(directive.subscription).toBeTruthy();
 
           directive.ngOnDestroy();
 
-          expect(directive.subscription).toBeUndefined();
+          void expect(directive.subscription).toBeUndefined();
         });
 
         it('when onMouseup called and dragging', () => {
           directive.onMousedown(mouseDown);
-          expect(directive.subscription).toBeTruthy();
+          void expect(directive.subscription).toBeTruthy();
 
           // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
           directive.onMouseup(<MouseEvent>{});
 
-          expect(directive.subscription).toBeUndefined();
+          void expect(directive.subscription).toBeUndefined();
         });
       });
 
@@ -84,12 +87,12 @@ describe('DraggableDirective', () => {
           directive.onMousedown(mouseDown);
           directive.isDragging = false;
 
-          expect(directive.subscription).toBeTruthy();
+          void expect(directive.subscription).toBeTruthy();
 
           // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
           directive.onMouseup(<MouseEvent>{});
 
-          expect(directive.subscription).toBeTruthy();
+          void expect(directive.subscription).toBeTruthy();
         });
       });
     });

@@ -17,19 +17,20 @@ describe('DataTableBodyCellComponent', () => {
     });
   });
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.compileComponents().then(() => {
+  beforeEach(waitForAsync(() => {
+    TestBed.compileComponents().then(
+      () => {
         fixture = TestBed.createComponent(DataTableBodyCellComponent);
         component = fixture.componentInstance;
         element = fixture.nativeElement;
-      });
-    })
-  );
+      },
+      () => {}
+    );
+  }));
 
   describe('fixture', () => {
     it('should have a component instance', () => {
-      expect(component).toBeTruthy();
+      void expect(component).toBeTruthy();
     });
   });
 
@@ -42,10 +43,10 @@ describe('DataTableBodyCellComponent', () => {
       // users should never set columns on DataTableBodyCellComponent directly
       // setColumnDefaults will be run on columns before they are set on BodyCellComponent
       setColumnDefaults(columns);
-      expect(columns[0].$$valueGetter).toBe(numericIndexGetter);
+      void expect(columns[0].$$valueGetter).toBe(numericIndexGetter);
 
       component.column = columns[0];
-      expect(component.value).toEqual('Hello');
+      void expect(component.value).toEqual('Hello');
     });
   });
 });

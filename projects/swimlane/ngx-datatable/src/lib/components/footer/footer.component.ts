@@ -56,7 +56,7 @@ export class DataTableFooterComponent {
   @Input() totalMessage: string;
   @Input() footerTemplate: DatatableFooterDirective;
 
-  @Input() selectedCount: number = 0;
+  @Input() selectedCount = 0;
   @Input() selectedMessage: string | boolean;
 
   @Output() page: EventEmitter<any> = new EventEmitter();

@@ -25,18 +25,21 @@ describe('OrderableDirective', () => {
   });
 
   beforeEach(waitForAsync(() => {
-    TestBed.compileComponents().then(() => {
-      fixture = TestBed.createComponent(TestFixtureComponent);
-      component = fixture.componentInstance;
-      element = fixture.nativeElement;
+    TestBed.compileComponents().then(
+      () => {
+        fixture = TestBed.createComponent(TestFixtureComponent);
+        component = fixture.componentInstance;
+        element = fixture.nativeElement;
 
-      /* This is required in order to resolve the `ContentChildren`.
-       *  If we don't go through at least on change detection cycle
-       *  the `draggables` will be `undefined` and `ngOnDestroy` will
-       *  fail.
-       */
-      fixture.detectChanges();
-    });
+        /* This is required in order to resolve the `ContentChildren`.
+         *  If we don't go through at least on change detection cycle
+         *  the `draggables` will be `undefined` and `ngOnDestroy` will
+         *  fail.
+         */
+        fixture.detectChanges();
+      },
+      () => {}
+    );
   }));
 
   describe('fixture', () => {
@@ -47,18 +50,18 @@ describe('OrderableDirective', () => {
     });
 
     it('should have a component instance', () => {
-      expect(component).toBeTruthy();
+      void expect(component).toBeTruthy();
     });
 
     it('should have OrderableDirective directive', () => {
-      expect(directive).toBeTruthy();
+      void expect(directive).toBeTruthy();
     });
 
     describe('when a draggable is removed', () => {
       function checkAllSubscriptionsForActiveObservers() {
         const subs = directive.draggables.map(d => {
-          expect(d.dragEnd.isStopped).toBe(false);
-          expect(d.dragStart.isStopped).toBe(false);
+          void expect(d.dragEnd.isStopped).toBe(false);
+          void expect(d.dragStart.isStopped).toBe(false);
 
           return {
             dragStart: d.dragStart.observers,
@@ -67,8 +70,8 @@ describe('OrderableDirective', () => {
         });
 
         subs.forEach(sub => {
-          expect(sub.dragStart.length).toBe(1);
-          expect(sub.dragEnd.length).toBe(1);
+          void expect(sub.dragStart.length).toBe(1);
+          void expect(sub.dragEnd.length).toBe(1);
         });
       }
 
@@ -99,8 +102,8 @@ describe('OrderableDirective', () => {
       it('then dragStart and dragEnd are unsubscribed from the removed draggable', () => {
         const unsubbed = draggables.splice(0, 1)[0];
 
-        expect(unsubbed.dragStart.isStopped).toBe(false);
-        expect(unsubbed.dragEnd.isStopped).toBe(false);
+        void expect(unsubbed.dragStart.isStopped).toBe(false);
+        void expect(unsubbed.dragEnd.isStopped).toBe(false);
 
         directive.draggables.reset(draggables);
 
@@ -108,8 +111,8 @@ describe('OrderableDirective', () => {
 
         checkAllSubscriptionsForActiveObservers();
 
-        expect(unsubbed.dragStart.isStopped).toBe(true);
-        expect(unsubbed.dragEnd.isStopped).toBe(true);
+        void expect(unsubbed.dragStart.isStopped).toBe(true);
+        void expect(unsubbed.dragEnd.isStopped).toBe(true);
       });
     });
   });

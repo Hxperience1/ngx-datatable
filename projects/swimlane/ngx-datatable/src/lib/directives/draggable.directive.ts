@@ -14,15 +14,15 @@ import { takeUntil } from 'rxjs/operators';
 export class DraggableDirective implements OnDestroy, OnChanges {
   @Input() dragEventTarget: any;
   @Input() dragModel: any;
-  @Input() dragX: boolean = true;
-  @Input() dragY: boolean = true;
+  @Input() dragX = true;
+  @Input() dragY = true;
 
   @Output() dragStart: EventEmitter<any> = new EventEmitter();
   @Output() dragging: EventEmitter<any> = new EventEmitter();
   @Output() dragEnd: EventEmitter<any> = new EventEmitter();
 
   element: HTMLElement;
-  isDragging: boolean = false;
+  isDragging = false;
   subscription: Subscription;
 
   constructor(element: ElementRef) {

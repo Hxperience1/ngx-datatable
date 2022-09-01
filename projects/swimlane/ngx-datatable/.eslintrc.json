@@ -13,22 +13,12 @@
       },
       "plugins": ["eslint-plugin-react"],
       "rules": {
-        "@angular-eslint/component-selector": [
-          "off",
-          {
-            "type": "element",
-            "prefix": "lib",
-            "style": "kebab-case"
-          }
-        ],
-        "@angular-eslint/directive-selector": [
-          "off",
-          {
-            "type": "attribute",
-            "prefix": "lib",
-            "style": "camelCase"
-          }
-        ],
+        "@angular-eslint/component-selector": "off",
+        "@angular-eslint/directive-selector": "off",
+        "@angular-eslint/directive-class-suffix": "warn",
+        "@angular-eslint/no-host-metadata-property": "off",
+        "@angular-eslint/no-input-rename": "off",
+        "@angular-eslint/no-output-native": "off",
         "@typescript-eslint/consistent-type-assertions": "off",
         "@typescript-eslint/dot-notation": "off",
         "@typescript-eslint/explicit-member-accessibility": [
@@ -37,7 +27,8 @@
             "accessibility": "explicit"
           }
         ],
-        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/member-ordering": "off",
+        "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-floating-promises": "error",
         "@typescript-eslint/no-unused-expressions": "off",
         "@typescript-eslint/prefer-for-of": "off",
@@ -49,6 +40,7 @@
         "brace-style": ["off", "off"],
         "curly": "off",
         "guard-for-in": "off",
+        "id-blacklist": "off",
         "import/no-extraneous-dependencies": [
           "error",
           {

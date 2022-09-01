@@ -31,19 +31,20 @@ describe('DataTableBodyComponent', () => {
     });
   });
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.compileComponents().then(() => {
+  beforeEach(waitForAsync(() => {
+    TestBed.compileComponents().then(
+      () => {
         fixture = TestBed.createComponent(DataTableBodyComponent);
         component = fixture.componentInstance;
         element = fixture.nativeElement;
-      });
-    })
-  );
+      },
+      () => {}
+    );
+  }));
 
   describe('fixture', () => {
     it('should have a component instance', () => {
-      expect(component).toBeTruthy();
+      void expect(component).toBeTruthy();
     });
   });
 
@@ -67,7 +68,7 @@ describe('DataTableBodyComponent', () => {
       component.rowCount = 20;
       const expectedIndexes = { first: 10, last: 20 };
       component.updateIndexes();
-      expect(component.indexes).toEqual(expectedIndexes);
+      void expect(component.indexes).toEqual(void expectedIndexes);
     });
 
     it('should have correct indexes for normal paging with rows < pageSize', () => {
@@ -78,7 +79,7 @@ describe('DataTableBodyComponent', () => {
       component.rowCount = 9;
       const expectedIndexes = { first: 5, last: 9 };
       component.updateIndexes();
-      expect(component.indexes).toEqual(expectedIndexes);
+      void expect(component.indexes).toEqual(void expectedIndexes);
     });
 
     it('should have correct indexes for external paging with rows > pageSize', () => {
@@ -100,7 +101,7 @@ describe('DataTableBodyComponent', () => {
       component.rowCount = 20;
       const expectedIndexes = { first: 0, last: 10 };
       component.updateIndexes();
-      expect(component.indexes).toEqual(expectedIndexes);
+      void expect(component.indexes).toEqual(void expectedIndexes);
     });
 
     it('should have correct indexes for external paging with rows < pageSize', () => {
@@ -111,14 +112,14 @@ describe('DataTableBodyComponent', () => {
       component.rowCount = 9;
       const expectedIndexes = { first: 0, last: 5 };
       component.updateIndexes();
-      expect(component.indexes).toEqual(expectedIndexes);
+      void expect(component.indexes).toEqual(void expectedIndexes);
     });
   });
 
   describe('Summary row', () => {
     it('should not return custom styles for a bottom summary row if a scrollbar mode is off', () => {
       const styles = component.getBottomSummaryRowStyles();
-      expect(styles).toBeFalsy();
+      void expect(styles).toBeFalsy();
     });
 
     it('should return custom styles for a bottom summary row if a scrollbar mode is on', () => {
@@ -127,7 +128,7 @@ describe('DataTableBodyComponent', () => {
       component.virtualization = true;
       component.rows = [{ num: 1 }, { num: 2 }, { num: 3 }, { num: 4 }];
       const styles = component.getBottomSummaryRowStyles();
-      expect(styles).toBeDefined();
+      void expect(styles).toBeDefined();
     });
   });
 });

@@ -29,15 +29,16 @@ describe('VisibilityDirective', () => {
     });
   });
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.compileComponents().then(() => {
+  beforeEach(waitForAsync(() => {
+    TestBed.compileComponents().then(
+      () => {
         fixture = TestBed.createComponent(TestFixtureComponent);
         component = fixture.componentInstance;
         element = fixture.nativeElement;
-      });
-    })
-  );
+      },
+      () => {}
+    );
+  }));
 
   describe('fixture', () => {
     let directive: VisibilityDirective;
@@ -47,11 +48,11 @@ describe('VisibilityDirective', () => {
     });
 
     it('should have a component instance', () => {
-      expect(component).toBeTruthy();
+      void expect(component).toBeTruthy();
     });
 
     it('should have VisibilityDirective directive', () => {
-      expect(directive).toBeTruthy();
+      void expect(directive).toBeTruthy();
     });
   });
 });

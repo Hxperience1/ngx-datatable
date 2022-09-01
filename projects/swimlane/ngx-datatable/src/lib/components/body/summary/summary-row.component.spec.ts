@@ -25,14 +25,12 @@ describe('DataTableSummaryRowComponent', () => {
     setColumnDefaults(columns);
   });
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [DataTableSummaryRowComponent, DataTableBodyRowComponent, DataTableBodyCellComponent],
-        providers: [ScrollbarHelper]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    void TestBed.configureTestingModule({
+      declarations: [DataTableSummaryRowComponent, DataTableBodyRowComponent, DataTableBodyCellComponent],
+      providers: [ScrollbarHelper]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DataTableSummaryRowComponent);
@@ -48,7 +46,7 @@ describe('DataTableSummaryRowComponent', () => {
 
   describe('fixture', () => {
     it('should have a component instance', () => {
-      expect(component).toBeTruthy();
+      void expect(component).toBeTruthy();
     });
   });
 
@@ -56,20 +54,20 @@ describe('DataTableSummaryRowComponent', () => {
     it('should not be visible when there are no columns', () => {
       component.rows = rows;
       triggerChange();
-      expect(element.query(By.css('datatable-body-row'))).toBeNull();
+      void expect(element.query(By.css('datatable-body-row'))).toBeNull();
     });
 
     it('should not be visible when there are no rows', () => {
       component.columns = columns;
       triggerChange();
-      expect(element.query(By.css('datatable-body-row'))).toBeNull();
+      void expect(element.query(By.css('datatable-body-row'))).toBeNull();
     });
 
     it('should be visible when there are rows and columns', () => {
       component.columns = columns;
       component.rows = rows;
       triggerChange();
-      expect(element.query(By.css('datatable-body-row'))).not.toBeNull();
+      void expect(element.query(By.css('datatable-body-row'))).not.toBeNull();
     });
   });
 
@@ -82,8 +80,8 @@ describe('DataTableSummaryRowComponent', () => {
 
     describe('Default Summary Function', () => {
       it('should be used when no other provided', () => {
-        expect(component.summaryRow.col1).toEqual(rows[0].col1 + rows[1].col1);
-        expect(component.summaryRow.col2).toEqual(rows[0].col2 + rows[1].col2);
+        void expect(component.summaryRow.col1).toEqual(rows[0].col1 + rows[1].col1);
+        void expect(component.summaryRow.col2).toEqual(rows[0].col2 + rows[1].col2);
       });
 
       it('should works with empty row', () => {
@@ -91,8 +89,8 @@ describe('DataTableSummaryRowComponent', () => {
 
         triggerChange();
 
-        expect(component.summaryRow.col1).toBeNull();
-        expect(component.summaryRow.col2).toBeNull();
+        void expect(component.summaryRow.col1).toBeNull();
+        void expect(component.summaryRow.col2).toBeNull();
       });
 
       it('should not compute a result if there are non-number cells', () => {
@@ -102,8 +100,8 @@ describe('DataTableSummaryRowComponent', () => {
         ];
 
         triggerChange();
-        expect(component.summaryRow.col1).toEqual(null);
-        expect(component.summaryRow.col2).toEqual(null);
+        void expect(component.summaryRow.col1).toEqual(null);
+        void expect(component.summaryRow.col2).toEqual(null);
       });
     });
 
@@ -112,7 +110,7 @@ describe('DataTableSummaryRowComponent', () => {
 
       triggerChange();
 
-      expect(component.summaryRow.col1).toEqual(null);
+      void expect(component.summaryRow.col1).toEqual(null);
     });
 
     it('should use provided summary function', () => {
@@ -125,14 +123,14 @@ describe('DataTableSummaryRowComponent', () => {
 
       triggerChange();
 
-      expect(spy1.calls.any()).toBeTruthy();
-      expect(spy2.calls.any()).toBeTruthy();
+      void expect(spy1.calls.any()).toBeTruthy();
+      void expect(spy2.calls.any()).toBeTruthy();
 
-      expect(spy1.calls.mostRecent().args[0]).toEqual([rows[0].col1, rows[1].col1]);
-      expect(spy2.calls.mostRecent().args[0]).toEqual([rows[0].col2, rows[1].col2]);
+      void expect(spy1.calls.mostRecent().args[0]).toEqual([rows[0].col1, rows[1].col1]);
+      void expect(spy2.calls.mostRecent().args[0]).toEqual([rows[0].col2, rows[1].col2]);
 
-      expect(component.summaryRow.col1).toEqual(sum1);
-      expect(component.summaryRow.col2).toEqual(sum2);
+      void expect(component.summaryRow.col1).toEqual(sum1);
+      void expect(component.summaryRow.col2).toEqual(sum2);
     });
 
     describe('Pipe', () => {
@@ -143,8 +141,8 @@ describe('DataTableSummaryRowComponent', () => {
         columns[0].pipe = { transform: transformSpy };
         triggerChange();
 
-        expect(transformSpy.calls.any()).toBeTruthy();
-        expect(component.summaryRow.col1).toEqual(transformed);
+        void expect(transformSpy.calls.any()).toBeTruthy();
+        void expect(component.summaryRow.col1).toEqual(transformed);
       });
     });
   });

@@ -76,10 +76,10 @@ export class OrderableDirective implements AfterContentInit, OnDestroy {
     let i = 0;
     for (const dragger of this.draggables.toArray()) {
       const elm = dragger.element;
-      const left = parseInt(elm.offsetLeft.toString(), 0);
+      const left = parseInt(elm.offsetLeft.toString(), 10);
       this.positions[dragger.dragModel.prop] = {
         left,
-        right: left + parseInt(elm.offsetWidth.toString(), 0),
+        right: left + parseInt(elm.offsetWidth.toString(), 10),
         index: i++,
         element: elm
       };

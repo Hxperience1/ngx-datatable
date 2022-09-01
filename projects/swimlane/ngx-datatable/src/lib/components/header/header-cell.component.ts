@@ -6,7 +6,8 @@ import {
   HostBinding,
   HostListener,
   ChangeDetectionStrategy,
-  ChangeDetectorRef
+  ChangeDetectorRef,
+  OnInit
 } from '@angular/core';
 import { SortType } from '../../types/sort.type';
 import { SelectionType } from '../../types/selection.type';
@@ -44,7 +45,7 @@ import { SortDirection } from '../../types/sort-direction.type';
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataTableHeaderCellComponent {
+export class DataTableHeaderCellComponent implements OnInit {
   @Input() sortType: SortType;
   @Input() sortAscendingIcon: string;
   @Input() sortDescendingIcon: string;

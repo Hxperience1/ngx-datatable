@@ -34,6 +34,7 @@ export function getterForProp(prop: TableColumnProp): ValueGetter {
 
 /**
  * Returns the value at this numeric index.
+ *
  * @param row array of values
  * @param index numeric index
  * @returns any or '' if invalid index
@@ -57,6 +58,7 @@ export function numericIndexGetter(row: any[], index: number): any {
 /**
  * Returns the value of a field.
  * (more efficient than deepValueGetter)
+ *
  * @param obj object containing the field
  * @param fieldName field name string
  */

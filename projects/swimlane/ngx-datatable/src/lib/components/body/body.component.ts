@@ -591,7 +591,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
         // Calculation of the first and last indexes will be based on where the
         // scrollY position would be at.  The last index would be the one
         // that shows up inside the view port the last.
-        const height = parseInt(this.bodyHeight, 0);
+        const height = parseInt(this.bodyHeight, 10);
         first = this.rowHeightsCache.getRowIndex(this.offsetY);
         last = this.rowHeightsCache.getRowIndex(height + this.offsetY) + 1;
       } else {
@@ -755,7 +755,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
     if (group === 'left') {
       translateXY(styles, offsetX, 0);
     } else if (group === 'right') {
-      const bodyWidth = parseInt(this.innerWidth + '', 0);
+      const bodyWidth = parseInt(this.innerWidth + '', 10);
       const totalDiff = widths.total - bodyWidth;
       const offsetDiff = totalDiff - offsetX;
       const offset = offsetDiff * -1;

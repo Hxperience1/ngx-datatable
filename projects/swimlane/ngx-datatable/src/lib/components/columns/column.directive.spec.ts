@@ -39,15 +39,16 @@ describe('DataTableColumnDirective', () => {
     });
   });
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.compileComponents().then(() => {
+  beforeEach(waitForAsync(() => {
+    TestBed.compileComponents().then(
+      () => {
         fixture = TestBed.createComponent(TestFixtureComponent);
         component = fixture.componentInstance;
         element = fixture.nativeElement;
-      });
-    })
-  );
+      },
+      () => {}
+    );
+  }));
 
   describe('fixture', () => {
     let directive: DataTableColumnDirective;
@@ -59,11 +60,11 @@ describe('DataTableColumnDirective', () => {
     });
 
     it('should have a component instance', () => {
-      expect(component).toBeTruthy();
+      void expect(component).toBeTruthy();
     });
 
     it('should have at least one DataTableColumnDirective directive', () => {
-      expect(directive).toBeTruthy();
+      void expect(directive).toBeTruthy();
     });
   });
 
@@ -75,26 +76,26 @@ describe('DataTableColumnDirective', () => {
     });
 
     it('should be found', () => {
-      expect(directive).toBeTruthy();
+      void expect(directive).toBeTruthy();
     });
 
     it('should have undefined inputs by default', () => {
       fixture.detectChanges();
-      expect(directive.name).toBeUndefined();
-      expect(directive.prop).toBeUndefined();
-      expect(directive.frozenRight).toBeUndefined();
-      expect(directive.frozenLeft).toBeUndefined();
-      expect(directive.flexGrow).toBeUndefined();
-      expect(directive.resizeable).toBeUndefined();
-      expect(directive.comparator).toBeUndefined();
-      expect(directive.pipe).toBeUndefined();
-      expect(directive.sortable).toBeUndefined();
-      expect(directive.draggable).toBeUndefined();
-      expect(directive.canAutoResize).toBeUndefined();
-      expect(directive.minWidth).toBeUndefined();
-      expect(directive.width).toBeUndefined();
-      expect(directive.maxWidth).toBeUndefined();
-      expect(directive.treeLevelIndent).toBeUndefined();
+      void expect(directive.name).toBeUndefined();
+      void expect(directive.prop).toBeUndefined();
+      void expect(directive.frozenRight).toBeUndefined();
+      void expect(directive.frozenLeft).toBeUndefined();
+      void expect(directive.flexGrow).toBeUndefined();
+      void expect(directive.resizeable).toBeUndefined();
+      void expect(directive.comparator).toBeUndefined();
+      void expect(directive.pipe).toBeUndefined();
+      void expect(directive.sortable).toBeUndefined();
+      void expect(directive.draggable).toBeUndefined();
+      void expect(directive.canAutoResize).toBeUndefined();
+      void expect(directive.minWidth).toBeUndefined();
+      void expect(directive.width).toBeUndefined();
+      void expect(directive.maxWidth).toBeUndefined();
+      void expect(directive.treeLevelIndent).toBeUndefined();
     });
   });
 
@@ -106,26 +107,26 @@ describe('DataTableColumnDirective', () => {
     });
 
     it('should be found', () => {
-      expect(directive).toBeTruthy();
+      void expect(directive).toBeTruthy();
     });
 
     it('should not notify of changes if its the first change', () => {
       component.columnName = 'Column A';
       fixture.detectChanges();
 
-      expect(TestBed.inject(ColumnChangesService).onInputChange).not.toHaveBeenCalled();
+      void expect(TestBed.inject(ColumnChangesService).onInputChange).not.toHaveBeenCalled();
     });
 
     it('notifies of subsequent changes', () => {
       component.columnName = 'Column A';
       fixture.detectChanges();
 
-      expect(TestBed.inject(ColumnChangesService).onInputChange).not.toHaveBeenCalled();
+      void expect(TestBed.inject(ColumnChangesService).onInputChange).not.toHaveBeenCalled();
 
       component.columnName = 'Column B';
       fixture.detectChanges();
 
-      expect(TestBed.inject(ColumnChangesService).onInputChange).toHaveBeenCalled();
+      void expect(TestBed.inject(ColumnChangesService).onInputChange).toHaveBeenCalled();
     });
   });
 });

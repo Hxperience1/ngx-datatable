@@ -21,15 +21,16 @@ describe('LongPressDirective', () => {
     });
   });
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.compileComponents().then(() => {
+  beforeEach(waitForAsync(() => {
+    TestBed.compileComponents().then(
+      () => {
         fixture = TestBed.createComponent(TestFixtureComponent);
         component = fixture.componentInstance;
         element = fixture.nativeElement;
-      });
-    })
-  );
+      },
+      () => {}
+    );
+  }));
 
   describe('fixture', () => {
     let directive: LongPressDirective;
@@ -39,15 +40,15 @@ describe('LongPressDirective', () => {
     });
 
     it('should have a component instance', () => {
-      expect(component).toBeTruthy();
+      void expect(component).toBeTruthy();
     });
 
     it('should have LongPressDirective directive', () => {
-      expect(directive).toBeTruthy();
+      void expect(directive).toBeTruthy();
     });
 
     it('should have isLongPress set to false', () => {
-      expect(directive.isLongPress).toBeFalsy();
+      void expect(directive.isLongPress).toBeFalsy();
     });
 
     /*

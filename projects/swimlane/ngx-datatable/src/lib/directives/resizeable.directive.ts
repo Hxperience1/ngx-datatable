@@ -19,7 +19,7 @@ import { takeUntil } from 'rxjs/operators';
   }
 })
 export class ResizeableDirective implements OnDestroy, AfterViewInit {
-  @Input() resizeEnabled: boolean = true;
+  @Input() resizeEnabled = true;
   @Input() minWidth: number;
   @Input() maxWidth: number;
 
@@ -27,7 +27,7 @@ export class ResizeableDirective implements OnDestroy, AfterViewInit {
 
   element: HTMLElement;
   subscription: Subscription;
-  resizing: boolean = false;
+  resizing = false;
   private resizeHandle: HTMLElement;
 
   constructor(element: ElementRef, private renderer: Renderer2) {

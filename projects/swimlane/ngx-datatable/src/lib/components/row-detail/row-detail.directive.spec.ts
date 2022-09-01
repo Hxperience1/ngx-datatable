@@ -27,15 +27,16 @@ describe('DatatableRowDetailDirective', () => {
     });
   });
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.compileComponents().then(() => {
+  beforeEach(waitForAsync(() => {
+    TestBed.compileComponents().then(
+      () => {
         fixture = TestBed.createComponent(TestFixtureComponent);
         component = fixture.componentInstance;
         element = fixture.nativeElement;
-      });
-    })
-  );
+      },
+      () => {}
+    );
+  }));
 
   describe('fixture', () => {
     let directive: DatatableRowDetailDirective;
@@ -47,11 +48,11 @@ describe('DatatableRowDetailDirective', () => {
     });
 
     it('should have a component instance', () => {
-      expect(component).toBeTruthy();
+      void expect(component).toBeTruthy();
     });
 
     it('should have at least one DatatableRowDetailDirective directive', () => {
-      expect(directive).toBeTruthy();
+      void expect(directive).toBeTruthy();
     });
   });
 
@@ -63,12 +64,12 @@ describe('DatatableRowDetailDirective', () => {
     });
 
     it('should be found', () => {
-      expect(directive).toBeTruthy();
+      void expect(directive).toBeTruthy();
     });
 
     it('should not have a template', () => {
       fixture.detectChanges();
-      expect(directive.template).toBeUndefined();
+      void expect(directive.template).toBeUndefined();
     });
   });
 
@@ -80,12 +81,12 @@ describe('DatatableRowDetailDirective', () => {
     });
 
     it('should be found', () => {
-      expect(directive).toBeTruthy();
+      void expect(directive).toBeTruthy();
     });
 
     it('should have a template', () => {
       fixture.detectChanges();
-      expect(directive.template).toBeDefined();
+      void expect(directive.template).toBeDefined();
     });
   });
 });

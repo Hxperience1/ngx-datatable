@@ -77,8 +77,8 @@ export class DataTableRowWrapperComponent implements DoCheck {
   groupContext: any;
   rowContext: any;
 
-  private rowDiffer: KeyValueDiffer<{}, {}>;
-  private _expanded: boolean = false;
+  private rowDiffer: KeyValueDiffer<unknown, unknown>;
+  private _expanded = false;
   private _rowIndex: number;
 
   constructor(private cd: ChangeDetectorRef, private differs: KeyValueDiffers) {

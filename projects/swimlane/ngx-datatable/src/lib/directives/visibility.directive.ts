@@ -14,7 +14,7 @@ import { Directive, Output, EventEmitter, ElementRef, HostBinding, NgZone, OnIni
 @Directive({ selector: '[visibilityObserver]' })
 export class VisibilityDirective implements OnInit, OnDestroy {
   @HostBinding('class.visible')
-  isVisible: boolean = false;
+  isVisible = false;
 
   @Output() visible: EventEmitter<any> = new EventEmitter();
 

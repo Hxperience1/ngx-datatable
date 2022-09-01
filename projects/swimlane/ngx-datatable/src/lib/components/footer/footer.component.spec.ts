@@ -20,7 +20,7 @@ describe('DataTableFooterComponent', () => {
       component.footerHeight = 123;
       page.detectChangesAndRunQueries();
 
-      expect(page.datatableFooterInner.nativeElement.style.height).toEqual('123px');
+      void expect(page.datatableFooterInner.nativeElement.style.height).toEqual('123px');
     });
 
     it('should have `.selected-count` class when selectedMessage is set', () => {
@@ -28,14 +28,14 @@ describe('DataTableFooterComponent', () => {
       component.selectedCount = 1;
       page.detectChangesAndRunQueries();
 
-      expect(page.datatableFooterInner.nativeElement).toHaveCssClass('selected-count');
+      void expect(page.datatableFooterInner.nativeElement).toHaveCssClass('selected-count');
     });
 
     it('should not have `.selected-count` class if selectedMessage is not set', () => {
       component.selectedMessage = undefined;
       page.detectChangesAndRunQueries();
 
-      expect(page.datatableFooterInner.nativeElement).not.toHaveCssClass('selected-count');
+      void expect(page.datatableFooterInner.nativeElement).not.toHaveCssClass('selected-count');
     });
   });
 
@@ -44,7 +44,7 @@ describe('DataTableFooterComponent', () => {
       component.footerTemplate = undefined;
       page.detectChangesAndRunQueries();
 
-      expect(page.templateList).toBeNull();
+      void expect(page.templateList).toBeNull();
     });
 
     it('should display the selected count and total if selectedMessage set', () => {
@@ -55,7 +55,7 @@ describe('DataTableFooterComponent', () => {
       component.totalMessage = 'total';
       page.detectChangesAndRunQueries();
 
-      expect(page.pageCount.nativeElement.innerText).toEqual('7 selected / 10 total');
+      void expect(page.pageCount.nativeElement.innerText).toEqual('7 selected / 10 total');
     });
 
     it('should display only the total if selectedMessage is not set', () => {
@@ -65,14 +65,14 @@ describe('DataTableFooterComponent', () => {
       component.totalMessage = 'total';
       page.detectChangesAndRunQueries();
 
-      expect(page.pageCount.nativeElement.innerText).toEqual('100 total');
+      void expect(page.pageCount.nativeElement.innerText).toEqual('100 total');
     });
 
     it('should render a DataTablePagerComponent', () => {
       component.footerTemplate = undefined;
       page.detectChangesAndRunQueries();
 
-      expect(page.datatablePager).not.toBeNull();
+      void expect(page.datatablePager).not.toBeNull();
     });
 
     it('should propagate page change events upward from the DataTablePagerComponent', () => {
@@ -84,7 +84,7 @@ describe('DataTableFooterComponent', () => {
       // mimic the act of changing the page through the datatable pager
       datatablePagerComponent.change.emit(pageChangeEvent);
 
-      expect(spy).toHaveBeenCalled();
+      void expect(spy).toHaveBeenCalled();
     });
 
     it('should bind to DataTablePagerComponent pagerLeftArrowIcon input', () => {
@@ -92,7 +92,7 @@ describe('DataTableFooterComponent', () => {
       page.detectChangesAndRunQueries();
       const datatablePagerComponent: DataTablePagerComponent = page.datatablePager.componentInstance;
 
-      expect(datatablePagerComponent.pagerLeftArrowIcon).toBe(component.pagerLeftArrowIcon);
+      void expect(datatablePagerComponent.pagerLeftArrowIcon).toBe(component.pagerLeftArrowIcon);
     });
 
     it('should bind to DataTablePagerComponent pagerRightArrowIcon input', () => {
@@ -100,7 +100,7 @@ describe('DataTableFooterComponent', () => {
       page.detectChangesAndRunQueries();
       const datatablePagerComponent: DataTablePagerComponent = page.datatablePager.componentInstance;
 
-      expect(datatablePagerComponent.pagerRightArrowIcon).toBe(component.pagerRightArrowIcon);
+      void expect(datatablePagerComponent.pagerRightArrowIcon).toBe(component.pagerRightArrowIcon);
     });
 
     it('should bind to DataTablePagerComponent pagerNextIcon input', () => {
@@ -108,7 +108,7 @@ describe('DataTableFooterComponent', () => {
       page.detectChangesAndRunQueries();
       const datatablePagerComponent: DataTablePagerComponent = page.datatablePager.componentInstance;
 
-      expect(datatablePagerComponent.pagerNextIcon).toBe(component.pagerNextIcon);
+      void expect(datatablePagerComponent.pagerNextIcon).toBe(component.pagerNextIcon);
     });
 
     it('should bind to DataTablePagerComponent pagerPreviousIcon input', () => {
@@ -116,7 +116,7 @@ describe('DataTableFooterComponent', () => {
       page.detectChangesAndRunQueries();
       const datatablePagerComponent: DataTablePagerComponent = page.datatablePager.componentInstance;
 
-      expect(datatablePagerComponent.pagerPreviousIcon).toBe(component.pagerPreviousIcon);
+      void expect(datatablePagerComponent.pagerPreviousIcon).toBe(component.pagerPreviousIcon);
     });
 
     it('should bind to DataTablePagerComponent size input', () => {
@@ -124,7 +124,7 @@ describe('DataTableFooterComponent', () => {
       page.detectChangesAndRunQueries();
       const datatablePagerComponent: DataTablePagerComponent = page.datatablePager.componentInstance;
 
-      expect(datatablePagerComponent.size).toBe(component.pageSize);
+      void expect(datatablePagerComponent.size).toBe(component.pageSize);
     });
 
     it('should bind to DataTablePagerComponent count input', () => {
@@ -132,7 +132,7 @@ describe('DataTableFooterComponent', () => {
       page.detectChangesAndRunQueries();
       const datatablePagerComponent: DataTablePagerComponent = page.datatablePager.componentInstance;
 
-      expect(datatablePagerComponent.count).toBe(component.rowCount);
+      void expect(datatablePagerComponent.count).toBe(component.rowCount);
     });
 
     it('should bind to DataTablePagerComponent page input', () => {
@@ -140,7 +140,7 @@ describe('DataTableFooterComponent', () => {
       page.detectChangesAndRunQueries();
       const datatablePagerComponent: DataTablePagerComponent = page.datatablePager.componentInstance;
 
-      expect(datatablePagerComponent.page).toBe(201);
+      void expect(datatablePagerComponent.page).toBe(201);
     });
 
     it('should show & hide the DataTablePagerComponent', () => {
@@ -148,13 +148,13 @@ describe('DataTableFooterComponent', () => {
       component.pageSize = 5;
       page.detectChangesAndRunQueries();
 
-      expect(page.datatablePager.nativeElement.hidden).toBe(false, 'DataTablePagerComponent should be hidden');
+      void expect(page.datatablePager.nativeElement.hidden).toBe(false, 'DataTablePagerComponent should be hidden');
 
       component.rowCount = 1;
       component.pageSize = 2;
       page.detectChangesAndRunQueries();
 
-      expect(page.datatablePager.nativeElement.hidden).toBe(true, 'DataTablePagerComponent should not be hidden');
+      void expect(page.datatablePager.nativeElement.hidden).toBe(true, 'DataTablePagerComponent should not be hidden');
     });
   });
 
@@ -163,8 +163,8 @@ describe('DataTableFooterComponent', () => {
       component.footerTemplate = { template: component.testTemplate };
       page.detectChangesAndRunQueries();
 
-      expect(page.pageCount).toBeNull();
-      expect(page.datatablePager).toBeNull();
+      void expect(page.pageCount).toBeNull();
+      void expect(page.datatablePager).toBeNull();
     });
 
     it('should render the template', () => {
@@ -172,7 +172,7 @@ describe('DataTableFooterComponent', () => {
       component.footerTemplate = { template: component.testTemplate };
       page.detectChangesAndRunQueries();
 
-      expect(page.templateList).not.toBeNull();
+      void expect(page.templateList).not.toBeNull();
     });
 
     it('should give the template proper context', () => {
@@ -184,11 +184,11 @@ describe('DataTableFooterComponent', () => {
       page.detectChangesAndRunQueries();
       const listItems = page.templateList.queryAll(By.css('li'));
 
-      expect(listItems[0].nativeElement).toHaveText('rowCount 12');
-      expect(listItems[1].nativeElement).toHaveText('pageSize 1');
-      expect(listItems[2].nativeElement).toHaveText('selectedCount 4');
-      expect(listItems[3].nativeElement).toHaveText('curPage 1');
-      expect(listItems[4].nativeElement).toHaveText('offset 0');
+      void expect(listItems[0].nativeElement).toHaveText('rowCount 12');
+      void expect(listItems[1].nativeElement).toHaveText('pageSize 1');
+      void expect(listItems[2].nativeElement).toHaveText('selectedCount 4');
+      void expect(listItems[3].nativeElement).toHaveText('curPage 1');
+      void expect(listItems[4].nativeElement).toHaveText('offset 0');
     });
   });
 });

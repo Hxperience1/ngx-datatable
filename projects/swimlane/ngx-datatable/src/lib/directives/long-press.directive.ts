@@ -5,9 +5,9 @@ import { MouseEvent } from '../events';
 
 @Directive({ selector: '[long-press]' })
 export class LongPressDirective implements OnDestroy {
-  @Input() pressEnabled: boolean = true;
+  @Input() pressEnabled = true;
   @Input() pressModel: any;
-  @Input() duration: number = 500;
+  @Input() duration = 500;
 
   @Output() longPressStart: EventEmitter<any> = new EventEmitter();
   @Output() longPressing: EventEmitter<any> = new EventEmitter();
@@ -16,8 +16,8 @@ export class LongPressDirective implements OnDestroy {
   pressing: boolean;
   isLongPressing: boolean;
   timeout: any;
-  mouseX: number = 0;
-  mouseY: number = 0;
+  mouseX = 0;
+  mouseY = 0;
 
   subscription: Subscription;
 

@@ -13,7 +13,7 @@ export function setColumnDefaults(columns: TableColumn[]) {
   // Only one column should hold the tree view
   // Thus if multiple columns are provided with
   // isTreeColumn as true we take only the first one
-  let treeColumnFound: boolean = false;
+  let treeColumnFound = false;
 
   for (const column of columns) {
     if (!column.$$id) {

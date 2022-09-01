@@ -26,6 +26,7 @@
             "accessibility": "explicit"
           }
         ],
+        "@typescript-eslint/member-ordering": "warn",
         "@typescript-eslint/no-explicit-any": "warn",
         "@typescript-eslint/no-floating-promises": "error",
         "@typescript-eslint/no-unused-expressions": "off",
