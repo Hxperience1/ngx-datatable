@@ -39,13 +39,11 @@ import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
   `
 })
 export class FilterBarComponent {
-  rows = [];
-
-  temp = [];
-
-  columns = [{ prop: 'name' }, { name: 'Company' }, { name: 'Gender' }];
   @ViewChild(DatatableComponent) table: DatatableComponent;
 
+  rows = [];
+  temp = [];
+  columns = [{ prop: 'name' }, { name: 'Company' }, { name: 'Gender' }];
   ColumnMode = ColumnMode;
 
   constructor() {

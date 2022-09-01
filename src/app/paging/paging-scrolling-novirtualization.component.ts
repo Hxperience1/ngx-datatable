@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MockServerResultsService } from './mock-server-results-service';
 import { CorporateEmployee } from './model/corporate-employee';
 import { Page } from './model/page';
@@ -40,7 +40,7 @@ import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
     </div>
   `
 })
-export class PagingScrollingNoVirtualizationComponent {
+export class PagingScrollingNoVirtualizationComponent implements OnInit {
   page = new Page();
   rows = new Array<CorporateEmployee>();
 
@@ -57,6 +57,7 @@ export class PagingScrollingNoVirtualizationComponent {
 
   /**
    * Populate the table with new data based on the page number
+   *
    * @param page The page to select
    */
   setPage(pageInfo) {

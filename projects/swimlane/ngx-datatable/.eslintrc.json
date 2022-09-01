@@ -1,0 +1,91 @@
+{
+  "extends": "../../../.eslintrc.json",
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": [
+          "projects/swimlane/ngx-datatable/tsconfig.lib.json",
+          "projects/swimlane/ngx-datatable/tsconfig.spec.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "plugins": ["eslint-plugin-react"],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "off",
+          {
+            "type": "element",
+            "prefix": "lib",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "off",
+          {
+            "type": "attribute",
+            "prefix": "lib",
+            "style": "camelCase"
+          }
+        ],
+        "@typescript-eslint/consistent-type-assertions": "off",
+        "@typescript-eslint/dot-notation": "off",
+        "@typescript-eslint/explicit-member-accessibility": [
+          "off",
+          {
+            "accessibility": "explicit"
+          }
+        ],
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-floating-promises": "error",
+        "@typescript-eslint/no-unused-expressions": "off",
+        "@typescript-eslint/prefer-for-of": "off",
+        "@typescript-eslint/require-await": "error",
+        "@typescript-eslint/triple-slash-reference": "off",
+        "@typescript-eslint/type-annotation-spacing": "off",
+        "arrow-body-style": "off",
+        "arrow-parens": ["off", "always"],
+        "brace-style": ["off", "off"],
+        "curly": "off",
+        "guard-for-in": "off",
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": false,
+            "optionalDependencies": false
+          }
+        ],
+        "import/no-internal-modules": "off",
+        "import/order": "off",
+        "linebreak-style": "off",
+        "max-len": "off",
+        "new-parens": "off",
+        "newline-per-chained-call": "off",
+        "no-bitwise": "off",
+        "no-underscore-dangle": "off",
+        "no-extra-semi": "off",
+        "no-irregular-whitespace": "off",
+        "no-trailing-spaces": "off",
+        "prefer-arrow/prefer-arrow-functions": "off",
+        "prefer-object-spread": "off",
+        "react/jsx-curly-spacing": "off",
+        "react/jsx-equals-spacing": "off",
+        "react/jsx-tag-spacing": [
+          "off",
+          {
+            "afterOpening": "allow",
+            "closingSlash": "allow"
+          }
+        ],
+        "react/jsx-wrap-multilines": "off",
+        "space-before-function-paren": "off",
+        "space-in-parens": ["off", "never"]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "rules": {}
+    }
+  ]
+}

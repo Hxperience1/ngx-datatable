@@ -38,12 +38,10 @@ import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
   styleUrls: ['./summary-row-custom-template.component.scss']
 })
 export class SummaryRowCustomTemplateComponent implements OnInit {
-  rows = [];
-
-  @ViewChild('nameSummaryCell')
-  nameSummaryCell: TemplateRef<any>;
+  @ViewChild('nameSummaryCell') nameSummaryCell: TemplateRef<any>;
 
   columns = [];
+  rows = [];
 
   ColumnMode = ColumnMode;
 

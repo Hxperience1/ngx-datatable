@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MockServerResultsService } from '../paging/mock-server-results-service';
 import { PagedData } from '../paging/model/paged-data';
 import { CorporateEmployee } from '../paging/model/corporate-employee';
@@ -40,7 +40,7 @@ import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
     </div>
   `
 })
-export class SummaryRowServerPagingComponent {
+export class SummaryRowServerPagingComponent implements OnInit {
   page = new Page();
   rows = new Array<CorporateEmployee>();
 
@@ -64,6 +64,7 @@ export class SummaryRowServerPagingComponent {
 
   /**
    * Populate the table with new data based on the page number
+   *
    * @param page The page to select
    */
   setPage(pageInfo) {
